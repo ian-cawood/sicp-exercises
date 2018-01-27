@@ -1,0 +1,4 @@
+1.2 (/ (+ 5 4 (- 2 (- 3 (+ 6 (/ 4 5))))) (* 3 (- 6 2) (- 2 7)))
+1.4 (define (a-plus-abs-b a b) ((if (> b 0) + -) a b)) This chooses the sign as negative when b is negative which effectively gives the abs of b.
+1.6 new-if is a function that takes in sqrt-iter which takes in new-if which takes in sqrt-iter. Stack overflow
+1.8 (define (roots x y) (/ (+ (/ x (* y y) (* 2 y)) 3)))
