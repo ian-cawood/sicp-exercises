@@ -1,4 +1,31 @@
+1.1 10 => 10
+    (+ 5 3 4) => 12
+    (- 9 1) => 8
+    (/ 6 2) => 3
+    (+ (* 2 4) (- 4 6)) => 6
+    (define a 3) => a is 3
+    (define b (+ a 1)) => b is a+1 is 4
+    (+ a b (* a b)) => 19
+    (= a b) => #f
+    (if (and (> b a) (< b (* a b))) b a) => 4
+    (cond ((= a 4) 6) ((= b 4) (+ 6 7 a)) (else 25)) => 16
+    (+ 2 (if (> b a) b a)) => 6
+    (* (cond ((> a b) a) ((< a b) b) (else -1)) (+ a 1)) => 16
 1.2 (/ (+ 5 4 (- 2 (- 3 (+ 6 (/ 4 5))))) (* 3 (- 6 2) (- 2 7)))
+1.3 (define (square n) (* n n))
+    (define (sum-of-squares a b) (+ (square a) (square b)))
+
+    (define (square_of_larger_numbs a b c)
+      (cond
+        ((and (> a b) (> a c))
+          (cond
+            ((> b c) (sum_of_squares a b))
+            (else (sum_of_squares a c))))
+        (else (sum_of_squares b c))
+      )
+    )
 1.4 (define (a-plus-abs-b a b) ((if (> b 0) + -) a b)) This chooses the sign as negative when b is negative which effectively gives the abs of b.
+1.5 It return a 0 with normal and stack overflow with applicative
 1.6 new-if is a function that takes in sqrt-iter which takes in new-if which takes in sqrt-iter. Stack overflow
+1.7 Numerical analysis. More precise to work on the guess difference.
 1.8 (define (roots x y) (/ (+ (/ x (* y y) (* 2 y)) 3)))
