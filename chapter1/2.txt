@@ -1,0 +1,80 @@
+Procedures and the processes they generate
+Notes:1.2.1
+We have two major schools of recursive processes. One called simply recursive process and one called linear recursive process. A linear recursive process
+is also called a linear iterative process. In the iterative case the program variables provide a complete description of the state of the process. We can
+resume computation with those variables. In recursive state is not managed and will have to rerun everything to get a result. Recursive procedure is any
+procedure that refers to itself. Recursive process describes how the process evolves. Tail recursion is used for evaluating iterative recursion processes.
+It is an optimization technique used to execute the process in constant space.
+Questions:
+1.9
+For first one
+(inc (+ 3 5))
+(inc (inc (+ 2 5)))
+(inc (inc (inc (+ 1 5)))
+(inc (inc (inc (inc + 0 5))))
+(inc (inc (inc 6)))
+(inc (inc 7))
+(inc 8)
+9
+recursive
+
+Second one
+(+ 3 6)
+(+ 2 7)
+(+ 1 8)
+(+ 0 9)
+9
+iterative
+1.10
+(A 1 10)
+(A 0 (A 1 9))
+(A 0 (A 0 (A 1 8)))
+(A 0 (A 0 (A 0 (A 1 7)))) etc
+this will happen 10 times end up in 2 and then be multiplied 10 times 2^10 => 1024
+
+(A 2 4)
+(A 1 (A 2 3))
+(A 1 (A 1 (A 2 2)))
+(A 1 (A 1 (A 1 (A 2 1))))
+(A 1 (A 1 (A 1 2)))
+(A 1 (A 1 (A 0 (A 1 1))))
+(A 1 (A 1 (A 0 2)))
+(A 1 (A 1 4))
+(A 1 (A 0 (A 1 3)))
+(A 1 (A 0 (A 0 (A 1 2))))
+(A 1 (A 0 (A 0 (A 0 (A 1 1)))))
+(A 1 (A 0 (A 0 (A 0 2)))
+(A 1 (A 0 (A 0 4)))
+(A 1 (A 0 8))
+(A 1 16) => 2^16 => 65536
+
+(A 3 3)
+(A 2 (A 3 2))
+(A 2 (A 2 (A 3 1)))
+(A 2 (A 2 2))
+(A 2 (A 1 (A 2 1)))
+(A 2 (A 1 2))
+(A 2 (A 0 (A 1 1)))
+(A 2 (A 0 2))
+(A 2 4) => (A 1 16) => 2^16 => 65536
+
+f(n) => 2*n
+g(n) => 2^n
+h(n) => 2^(n^2)
+
+Notes:1.2.2
+Golden ration p^2=p+1 which is 1.6180 approximately.
+Questions:
+1.11
+(define (f n) (if (< n 3) n (+ (f (- n 1) (* 2 (f (- n 2)) (* 3 (f (- n 3))))))) for recursive
+(define (f-iter a b c n) (if (= n 0) a (f-iter b c (+ c (* 2 b) (* 3 a)))))
+1.12
+(define (f r c) (if (or (= r 1) (= c r)) 1 (+ (f (- r 1) (- c 1)) (f (- r 1) c))))
+1.13
+Set fib(n) = fib(n-1) + fib(n-2) and prove rhs=lhs
+1.14
+Tree in book evaluates to 4 I think
+1.15
+a) until the angle is less than 0.1
+5 times
+b) log(a)
