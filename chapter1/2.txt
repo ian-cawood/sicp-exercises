@@ -78,3 +78,32 @@ Tree in book evaluates to 4 I think
 a) until the angle is less than 0.1
 5 times
 b) log(a)
+1.16
+(define (expt-iter b counter product)
+  (if (= counter 0)
+      product
+      (if (even? counter)
+          (expt-iter (square b) (/ counter 2) product)
+          (expt-iter b (- counter 1) (* product b)))))
+(expt-iter b n 1))
+1.17
+(define (double x)
+  (+ x x))
+(define (halve x)
+  (/ x 2))
+(define (mult a b)
+  (cond ((= a 0) 0)
+    ((even? a) (mult (double b) (halve a)))
+    (else (+ b (mult b (- a 1))))))
+1.18
+(define (mult-iter a counter sum)
+  (cond
+    ((= counter 0) sum)
+    ((even? counter)
+      (mult-iter (double a) (halve counter) sum))
+    (else
+      (mult-iter a (- counter 1) (+ sum a)))))
+(mult-iter a b 0))
+1.19
+p' = p^2 + q^2
+q' = 2pq + q^2
