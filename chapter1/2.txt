@@ -107,3 +107,19 @@ b) log(a)
 1.19
 p' = p^2 + q^2
 q' = 2pq + q^2
+1.20
+Not sure how to do the normal.
+Applicative takes 4 iterations.
+1.21
+199 -> 199
+1999 -> 1999
+19999 -> 7
+1.22
+(define (search cur end)
+  (if (even?)
+    (search (+ 1 cur) end))
+  (if (<= cur end)
+    (timed-prime-test cur))
+  (if (<= cur end)
+    (search (+ 2 cur) end))
+)
