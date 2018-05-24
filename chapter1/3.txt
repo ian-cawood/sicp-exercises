@@ -1,0 +1,26 @@
+(define (sum term a next b)
+  (if (> a b)
+    0
+    (+ (term a)
+      (sum term (next a) next b)
+    )
+  )
+)
+
+(define (cube x)
+  (* x x x)
+)
+
+(define (simps f lower upper n)
+  (define h (/ (- upper lower) n))
+  (define (term k)
+    (define y (f (+ lower (* k h))))
+    (if (or (= k 0) (= k n))
+      y
+      (if (even? k)
+        (* 2 y)
+        (* 4 y))
+    )
+  )
+  (* (/ h 3) (sum term 0 inc n))
+)

@@ -123,3 +123,9 @@ Applicative takes 4 iterations.
   (if (<= cur end)
     (search (+ 2 cur) end))
 )
+1.23
+(next cur)
+  (if (= cur 2)
+    (3))
+  (else
+    (+ cur 2))
